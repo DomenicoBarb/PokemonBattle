@@ -40,5 +40,5 @@ To use the Pokémon First Generation Generator, simply enter the name of the des
 ## Screenshots:
 ![Pokemon Battle](./assets/images/demo.gif)
 
-## Link to deployed app:
-https://ashketchumandpikachu.github.io/PokemonBattle/
+## Link to deployed app (forked version):
+https://domenicobarb.github.io/PokemonBattle/
