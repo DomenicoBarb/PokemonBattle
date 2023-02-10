@@ -548,20 +548,31 @@ $(function () {
   }
 
   function videoSearch(apiKey, search, maxResults) {
-    // dynamically generated URL inputting the API key, max results value (one for now) and
-    // the search value (what pokemon was inputted) along with "first appearance in show" for video specificity
-    $.get("https://www.googleapis.com/youtube/v3/search?key=" + apiKey + "&type=video&part=snippet&maxResults=" + maxResults + "&q=" + search + "pokemon+first+appearance+in+anime", function (data) {
-
-        // this appends the video (in iframe format) to the div with the id=videos
-        // at a later date this could be added to a modal?
-        // this method between the back ticks allows us to enter HTML into the JS
-        // this is a quick and dirty way, may be altered in the future
-        // the location of the video being display is WIP
+    $.get(
+      "https://www.googleapis.com/youtube/v3/search?key=" +
+        apiKey +
+        "&type=video&part=snippet&maxResults=" +
+        maxResults +
+        "&q=" +
+        search +
+        "pokemon+first+appearance+in+anime",
+      function(data) {
         data.items.forEach(item => {
-        video = `<iframe width="1280" height="720" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>          `
-        // #video class location will be where the iframe is appended 
-        $("#videos").append(video)
+          video = `<iframe width="1280" height="720" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>`;
+          $("#videos").append(video);
+        });
+      }
+    )
+      .done(function() {
+        console.log("API call success with API key: " + apiKey);
+      })
+      .fail(function() {
+        console.error("API call failed with API key: " + apiKey);
+        if (retryCount < 3) {
+          retryCount++;
+          apiKey = "AIzaSyAaVfO_wyq9c3hNxgESz04Z_kqAQnoVSCg";
+          videoSearch(apiKey, search, maxResults);
+        }
       });
-    })
   }
 });
