@@ -193,7 +193,7 @@ $(function () {
   });
 
   // api key
-  var apiKey = "AIzaSyCie6aHQbYjEHxEmriDOJ9S3ah6U5jguUg";
+  var apiKey = "AIzaSyDy7YUnuT9h_vTwL5Qaz_ib9F2Q7Gn0FkU";
   // video is an empty string to start, will be generated
   var video = '';
 
@@ -553,7 +553,7 @@ $(function () {
   // function to search the city with its own button
   function searchAgain(event) {
     event.preventDefault();
-    var apiKey = "AIzaSyCie6aHQbYjEHxEmriDOJ9S3ah6U5jguUg";
+    var apiKey = "AIzaSyDy7YUnuT9h_vTwL5Qaz_ib9F2Q7Gn0FkU";
     videoSearch(apiKey, event.target.innerHTML, 1)
   }
 
@@ -580,7 +580,7 @@ $(function () {
         console.error("API call failed with API key: " + apiKey);
         if (retryCount < 3) {
           retryCount++;
-          apiKey = "AIzaSyAaVfO_wyq9c3hNxgESz04Z_kqAQnoVSCg";
+          apiKey = "AIzaSyBvK2egYbmmfIhJ-mQgz5YizZOdUZ5VhDc";
           videoSearch(apiKey, search, maxResults);
         }
       });
