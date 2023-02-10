@@ -193,7 +193,7 @@ $(function () {
   });
 
   // api key
-  var apiKey = "AIzaSyDafs9W3jhBLLX0VMFVj-pcOCzNMwUdNiw";
+  var apiKey = "AIzaSyCie6aHQbYjEHxEmriDOJ9S3ah6U5jguUg";
   // video is an empty string to start, will be generated
   var video = '';
 
@@ -543,7 +543,7 @@ $(function () {
   // function to search the city with its own button
   function searchAgain(event) {
     event.preventDefault();
-    var apiKey = "AIzaSyDafs9W3jhBLLX0VMFVj-pcOCzNMwUdNiw";
+    var apiKey = "AIzaSyCie6aHQbYjEHxEmriDOJ9S3ah6U5jguUg";
     videoSearch(apiKey, event.target.innerHTML, 1)
   }
 
