@@ -217,7 +217,7 @@ $(function () {
           if (nameArray.includes(search) === true) {
             getPokemon(search);
           } else {
-            console.log("not part of the first Generation");
+            console.error("Not part of the first Generation");
           }
       })
     }
