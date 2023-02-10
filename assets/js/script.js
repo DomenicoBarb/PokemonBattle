@@ -202,15 +202,25 @@ $(function () {
     event.preventDefault()
     var search = pokemonInput.val().split(" ")[0].trim().toLowerCase()
 
-    // for debugging purposes, confirms a form is submitted
-    //alert("form is submitted")//
+    gen1Pokemon(search);
+    pokemonInput.val("")
 
-    // this will be altered to our counter pokemon name when that var is created
-    // still need poke api logic to get that variable/value
-    // currently links to the inputted pokemon name, not counter pokemon name like the final product
-
-    // videoSearch config
-    // videoSearch(apiKey, search, 1)
+    function gen1Pokemon(search) {
+      fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+        .then((response) => response.json())
+        .then((data) => {
+          nameArray = [];
+          for (var i = 0; i < 151; i++) {
+            nameArray[i] = data.results[i].name;
+          }
+  
+          if (nameArray.includes(search) === true) {
+            getPokemon(search);
+          } else {
+            console.log("not part of the first Generation");
+          }
+      })
+    }
 
     function getPokemon() {
     fetch('https://pokeapi.co/api/v2/pokemon/' + search)
@@ -236,9 +246,9 @@ $(function () {
         findWeakness(pokemonType1);
       });
     };
-    getPokemon();
   });
-  
+
+
   function findWeakness(pokemonType1) {
     fetch('https://pokeapi.co/api/v2/type/' + pokemonType1)
     .then((response) => response.json())
